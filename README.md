@@ -7,5 +7,6 @@
  
  已经二年级了，在杭州实习的那段时间，也发现了自己知识上的不足跟技术gap，我决定从这个仓库开始，重新从低层学起，Debug the world!!🚀🚀🚀
 
+######  数学部分有线性代数、概率论、高数基础基本够用
 ####  更新了目前的部分学习笔记以及资料
-To do: java、operation system
+  To do: java、operation system
