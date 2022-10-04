@@ -11,6 +11,10 @@
 
 ######  数学部分有线性代数、概率论、高数基础基本够用  
 2022/10/2： 更新了深度学习笔记  
-2022/10/4： 更新linux源码和bios
+2022/10/4： 更新linux源码和bios  
+<em>By the way💡</em>: 我打算以每天一篇的方式更新linux部分，避免~~忘记~~偷懒。
 ####  To do list:
-  java、operation system
+- [x] Linux
+- [ ] Java
+- [ ] blog&文档
+- [ ] 骂娘和随笔
