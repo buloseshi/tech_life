@@ -17,6 +17,7 @@ anaconda、Ubuntu发行版（anyone）、pycharm(建议专业版，可以直接�
 4. cudnn不是必需的❗。cuda架构可以使GPU用来进行并行计算，cudnn是针对深度神经网络计算加速库，需要自行到nvidia下载，下载deb版本，然后打开下载目录  
 WSL中，使用`cp 源路径 目的路径`，将cudnn的deb包复制到linux下，然后`sudo dpkg -i <cudnn_name>.deb`
 5. wsl安装pytorch：  
+设置pip清华源(可选)，自己用的预览版的官方源挺快的`pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 `pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu115`  
 如果下载速度太慢，就使用：  
 `pip3 install torch torchvision torchaudio -i https://pypi.tuna.tsinghua.edu.cn/simple`
