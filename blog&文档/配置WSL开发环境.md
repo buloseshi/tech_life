@@ -1,4 +1,4 @@
-#####  懒得每次都搜代码配置了，直接来一套  
+#####  从0到1配置WSL2深度学习开发环境
 Win+WSl2, pytorch1.12 + cuda11.5 + cudnn8.x  
 1. win端安装必要的软件：  
 anaconda、Ubuntu发行版（anyone）、pycharm(建议专业版，可以直接调用wsl的linux内核，社区版也可以，但win端只能使用命令行)。 安装好后，win打开cmd,输入  
