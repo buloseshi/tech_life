@@ -1,21 +1,31 @@
 #####  从0到1配置WSL2深度学习开发环境
 Win+WSl2, pytorch1.12 + cuda11.5 + cudnn8.x  
 1. win端安装必要的软件：  
-anaconda、Ubuntu发行版（anyone）、pycharm(建议专业版，可以直接调用wsl的linux内核，社区版也可以，但win端只能使用命令行)。 安装好后，win打开cmd,输入  
-`wsl --set-version <安装的分发版名字> 2`  
-确保安装的是wsl2，wsl1不支持cuda
-2. wsl安装miniconda：  
-因为我们只需要conda包管理器就可以了，不用下载完整的anaconda,  
-`https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`  
-`sudo bash Miniconda3-latest-Linux-x86_64.sh`
-3. 确保win端安装了nvidia驱动：
+anaconda、Ubuntu发行版（anyone）、pycharm(建议专业版，可以直接调用wsl的linux内核，社区版也可以，但win端只能使用命令行)。
+1.1 安装WSL2子系统作为运行环境
+   win管理员模式打开cmd/powershell,输入`dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
+   启用Linux子系统组件
+   完成后再输入`dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
+   启用windows虚拟化环境
+   win可直接在应用商店搜索ubuntu或者打开cmd/powershell输入 `wsl --install`默认安装ubuntu环境，可使用`wsl --install -d <ubuntupreview>`
+   安装ubuntu预览版，无需二次配置源
+  安装好后，win打开cmd,输入  
+  `wsl --set-version <安装的分发版名字> 2`  
+  确保安装的是wsl2，wsl1不支持cuda
+3. wsl安装miniconda：  
+因为我们只需要conda包管理器就可以了，不用下载完整的anaconda,
+打开powershell,输入`ubuntupreview.exe`或者你自己安装的Ubuntu发行版的名字，打开ubuntu子系统，成功后会进入ubuntu命令控制行，后续操作即通过命令行在ubuntu子系统中完成
+输入`wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`下载miniconda3安装文件
+再输入
+`sudo bash Miniconda3-latest-Linux-x86_64.sh`安装miniconda3
+5. 确保win端安装了nvidia驱动：
 进入ubuntu发行版命令行，安装cuda  
 `wget https://developer.download.nvidia.com/compute/cuda/11.5.0/local_installers/cuda_11.5.0_495.29.05_linux.run`  
 `sudo sh cuda_11.5.0_495.29.05_linux.run  --override`  
 如果报错八成是win端的驱动太老，直接下载win端Geforce更新到最新驱动即可。
-4. cudnn不是必需的❗。cuda架构可以使GPU用来进行并行计算，cudnn是针对深度神经网络计算加速库，需要自行到nvidia下载，下载deb版本，然后打开下载目录  
+6. cudnn不是必需的❗。cuda架构可以使GPU用来进行并行计算，cudnn是针对深度神经网络计算加速库，需要自行到nvidia下载，下载deb版本，然后打开下载目录  
 WSL中，使用`cp 源路径 目的路径`，将cudnn的deb包复制到linux下，然后`sudo dpkg -i <cudnn_name>.deb`
-5. wsl安装pytorch：  
+7. wsl安装pytorch：  
 设置pip清华源(可选)，自己用的预览版的官方源挺快的`pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 `pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu115`  
 如果下载速度太慢，就使用：  
